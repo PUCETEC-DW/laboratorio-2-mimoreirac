@@ -13,6 +13,16 @@ fetch("https://restcountries.com/v3.1/all")
     console.log("Error al hacer la peticion", error);
   });
 
+const nombre = document.createElement("h2");
+const bandera = document.createElement("img");
+const region = document.createElement("p");
+const poblacion = document.createElement("p");
+
+contenedorResultado.appendChild(nombre);
+contenedorResultado.appendChild(bandera);
+contenedorResultado.appendChild(region);
+contenedorResultado.appendChild(poblacion);
+
 buscador.addEventListener("input", (e) => {
   const busqueda = e.target.value.trim().toLowerCase();
 
@@ -21,12 +31,14 @@ buscador.addEventListener("input", (e) => {
   }
 
   const resultado = listaPaises.find((pais) =>
-    pais.name.common.toLowerCase().startsWith(busqueda),
+    pais.translations.spa.common.toLowerCase().startsWith(busqueda),
   );
 
   if (resultado) {
-    const nombre = document.createElement("h2");
-    nombre.textContent = `${resultado.name.common}`;
-    contenedorResultado.appendChild(nombre);
+    nombre.textContent = `${resultado.translations.spa.common}`;
+    bandera.src = `${resultado.flags.svg}`;
+    region.textContent = `${resultado.region}`;
+    const habitantes = new Intl.NumberFormat("es-ES").format(resultado.population);
+    poblacion.textContent = habitantes + " habitantes.";
   }
 });
