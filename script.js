@@ -18,8 +18,13 @@ const bandera = document.createElement("img");
 const region = document.createElement("p");
 const poblacion = document.createElement("p");
 
-contenedorResultado.appendChild(nombre);
+bandera.classList.add("imagen-bandera");
+nombre.classList.add("nombre-pais");
+region.classList.add("region-pais");
+poblacion.classList.add("habitantes-pais");
+
 contenedorResultado.appendChild(bandera);
+contenedorResultado.appendChild(nombre);
 contenedorResultado.appendChild(region);
 contenedorResultado.appendChild(poblacion);
 
