@@ -1,6 +1,10 @@
 const buscador = document.getElementById("buscador");
 const contenedorResultado = document.getElementById("resultado");
+const lainOverlay = document.getElementById("lain-overlay");
+const lainGif = document.getElementById("lain-gif");
 let listaPaises = [];
+let lainEasterEggActive = false;
+const LAIN_GIF_URL = "https://media.tenor.com/k1E6DXcw4zkAAAAi/lain.gif";
 
 fetch("https://restcountries.com/v3.1/all")
   .then((response) => {
@@ -29,8 +33,36 @@ contenedorResultado.appendChild(nombre);
 contenedorResultado.appendChild(region);
 contenedorResultado.appendChild(poblacion);
 
+function triggerLainEasterEgg() {
+  if (lainEasterEggActive) return;
+  lainEasterEggActive = true;
+
+  document.body.classList.add("glitch-active");
+  lainGif.src = LAIN_GIF_URL;
+  lainOverlay.classList.add("lain-overlay-visible");
+
+  contenedorResultado.style.visibility = "hidden";
+
+  setTimeout(() => {
+    document.body.classList.remove("glitch-active");
+    lainOverlay.classList.remove("lain-overlay-visible");
+    lainGif.src = "";
+    lainEasterEggActive = false;
+
+  }, 7000);
+}
+
 buscador.addEventListener("input", (e) => {
+  if (lainEasterEggActive) {
+    return;
+  }
+
   const busqueda = e.target.value.trim().toLowerCase();
+
+  if (busqueda === "lain") {
+    triggerLainEasterEgg();
+    return;
+  }
 
   if (!busqueda) {
     bandera.src = "";
