@@ -39,6 +39,7 @@ buscador.addEventListener("input", (e) => {
     region.textContent = "";
     poblacion.textContent = "";
     contenedorResultado.style.visibility = "hidden";
+    bandera.style.visibility = "hidden";
     return;
   }
 

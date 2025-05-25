@@ -1,6 +1,6 @@
 :root {
   --uchu-gray: oklch(95.57% 0.003 286.35);
-  --uchu-red: oklch(58.63% 0.231 19.6);
+  --uchu-gray-9: oklch(56.82% 0.004 247.89);
   --uchu-purple: oklch(49.39% 0.215 298.31);
   --uchu-blue: oklch(54.87% 0.222 260.33);
   --uchu-green: oklch(75.23% 0.209 144.64);
@@ -16,6 +16,10 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--uchu-gray);
+  background-image: url("blob-scene-haikei.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #resultado {
@@ -29,6 +33,20 @@ body {
   overflow: visible;
   border-radius: 10%;
   background-color: white;
+  box-shadow: 0 2px 4px var(--uchu-gray-9);
+}
+
+#buscador {
+  width: 300px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: 20px;
+  border: 2px solid var(--uchu-gray);
+  outline: none;
+  box-shadow: 0 2px 4px var(--uchu-gray-9);
+  padding: 8px 12px;
+  border-radius: 4px;
 }
 
 h2 {
