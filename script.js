@@ -23,6 +23,7 @@ nombre.classList.add("nombre-pais");
 region.classList.add("region-pais");
 poblacion.classList.add("habitantes-pais");
 
+contenedorResultado.style.visibility = "hidden";
 contenedorResultado.appendChild(bandera);
 contenedorResultado.appendChild(nombre);
 contenedorResultado.appendChild(region);
@@ -32,18 +33,37 @@ buscador.addEventListener("input", (e) => {
   const busqueda = e.target.value.trim().toLowerCase();
 
   if (!busqueda) {
-    display.textContent = "";
+    bandera.src = "";
+    bandera.alt = "";
+    nombre.textContent = "";
+    region.textContent = "";
+    poblacion.textContent = "";
+    contenedorResultado.style.visibility = "hidden";
+    return;
   }
+
+  contenedorResultado.style.visibility = "visible";
 
   const resultado = listaPaises.find((pais) =>
     pais.translations.spa.common.toLowerCase().startsWith(busqueda),
   );
 
   if (resultado) {
-    nombre.textContent = `${resultado.translations.spa.common}`;
+    bandera.style.visibility = "visible";
     bandera.src = `${resultado.flags.svg}`;
+    bandera.alt = `Bandera de ${resultado.translations.spa.common}`;
+    nombre.textContent = `${resultado.translations.spa.common}`;
     region.textContent = `${resultado.region}`;
-    const habitantes = new Intl.NumberFormat("es-ES").format(resultado.population);
-    poblacion.textContent = habitantes + " habitantes.";
+    const habitantes = new Intl.NumberFormat("es-ES").format(
+      resultado.population,
+    );
+    poblacion.textContent = habitantes + " habitantes";
+  } else {
+    bandera.src = "";
+    bandera.alt = "";
+    bandera.style.visibility = "hidden";
+    nombre.textContent = "País no encontrado";
+    region.textContent = "";
+    poblacion.textContent = "";
   }
 });

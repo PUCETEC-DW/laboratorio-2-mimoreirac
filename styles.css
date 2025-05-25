@@ -1,0 +1,59 @@
+:root {
+  --uchu-gray: oklch(95.57% 0.003 286.35);
+  --uchu-red: oklch(58.63% 0.231 19.6);
+  --uchu-purple: oklch(49.39% 0.215 298.31);
+  --uchu-blue: oklch(54.87% 0.222 260.33);
+  --uchu-green: oklch(75.23% 0.209 144.64);
+  --uchu-yellow: oklch(89% 0.146 91.5);
+  --uchu-orange: oklch(74.61% 0.171 51.56);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--uchu-gray);
+}
+
+#resultado {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  padding: 1rem;
+  overflow: visible;
+  border-radius: 10%;
+  background-color: white;
+}
+
+h2 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 40px;
+}
+
+p {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.imagen-bandera {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-top: -35%;
+  border: solid 2px var(--uchu-gray);
+  box-sizing: border-box;
+}
