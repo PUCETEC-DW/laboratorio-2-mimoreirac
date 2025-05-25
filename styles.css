@@ -1,11 +1,6 @@
 :root {
   --uchu-gray: oklch(95.57% 0.003 286.35);
   --uchu-gray-9: oklch(56.82% 0.004 247.89);
-  --uchu-purple: oklch(49.39% 0.215 298.31);
-  --uchu-blue: oklch(54.87% 0.222 260.33);
-  --uchu-green: oklch(75.23% 0.209 144.64);
-  --uchu-yellow: oklch(89% 0.146 91.5);
-  --uchu-orange: oklch(74.61% 0.171 51.56);
 }
 
 body {
